@@ -20,7 +20,12 @@ class Box: SCNNode {
         boxGeometry.materials = [materiaal]
         
         self.geometry = boxGeometry
+        let physicsShape = SCNPhysicsShape(geometry: self.geometry!, options: nil)
+        self.physicsBody = SCNPhysicsBody(type: .static, shape: physicsShape)
+        
         self.position = position
+        
+        self.transform = SCNMatrix4MakeRotation(Float(-Double.pi / 2), 1.0, 0.0, 0.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
