@@ -43,11 +43,11 @@ class ViewController: UIViewController {
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         
-        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        self.sceneView.addGestureRecognizer(doubleTapGestureRecognizer)
-        
-        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+//        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
+//        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+//        self.sceneView.addGestureRecognizer(doubleTapGestureRecognizer)
+//        
+//        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
     }
     
     @objc func placeVirtualObject(tapGesture: UITapGestureRecognizer) {
@@ -66,9 +66,13 @@ class ViewController: UIViewController {
                                   hitResult.worldTransform.columns.3.y,
                                   hitResult.worldTransform.columns.3.z)
         
-        let virtualObject = VirtualObject.availableObjects[0]
-        virtualObject.position = position
+        guard let virtualObject = VirtualObject.availableObjects.first else { fatalError("There is no virtual object available")
+            
+        }
+        
         virtualObject.load()
+        virtualObject.position = position
+        
         sceneView.scene.rootNode.addChildNode(virtualObject)
     }
     
