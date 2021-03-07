@@ -67,11 +67,17 @@ class ViewController: UIViewController {
                                   hitResult.worldTransform.columns.3.z)
         
         guard let virtualObject = VirtualObject.availableObjects.first else { fatalError("There is no virtual object available")
-            
         }
         
         virtualObject.load()
         virtualObject.position = position
+        
+        if let particleSystem = SCNParticleSystem(named: "Smoke.scnp", inDirectory: nil), let smokeNode = virtualObject.childNode(withName: "SmokeNode", recursively: true) {
+            
+            smokeNode.addParticleSystem(particleSystem)
+        }
+        
+        
         
         sceneView.scene.rootNode.addChildNode(virtualObject)
     }
@@ -123,6 +129,8 @@ extension ViewController: ARSCNViewDelegate {
         guard anchor is ARPlaneAnchor else { return }
         
         let plane = Plane(anchor:  anchor as! ARPlaneAnchor)
+        print("Plane is detected and created-------->")
+        
         
         self.planes.append(plane)
         node.addChildNode(plane)

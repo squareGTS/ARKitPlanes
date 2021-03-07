@@ -22,7 +22,7 @@ class Plane: SCNNode {
         self.planeGeometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
         
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "")
+        material.diffuse.contents = UIImage(named: "pinkWeb.png") // UIColor.clear
         
         self.planeGeometry.materials = [material]
         
