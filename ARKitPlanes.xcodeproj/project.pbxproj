@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123B312E25F4CD65009AF055 /* BitMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123B312D25F4CD65009AF055 /* BitMaskCategory.swift */; };
 		123C8A9B25F0001C0001D75E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C8A9A25F0001C0001D75E /* Box.swift */; };
 		125021A425EEAC9000D329E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125021A325EEAC9000D329E8 /* AppDelegate.swift */; };
 		125021A625EEAC9000D329E8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 125021A525EEAC9000D329E8 /* art.scnassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		123B312D25F4CD65009AF055 /* BitMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMaskCategory.swift; sourceTree = "<group>"; };
 		123C8A9A25F0001C0001D75E /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		125021A025EEAC9000D329E8 /* ARKitPlanes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKitPlanes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		125021A325EEAC9000D329E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				125021A525EEAC9000D329E8 /* art.scnassets */,
 				125021A725EEAC9000D329E8 /* ViewController.swift */,
 				123C8A9A25F0001C0001D75E /* Box.swift */,
+				123B312D25F4CD65009AF055 /* BitMaskCategory.swift */,
 				125021B825EEADC000D329E8 /* Plane.swift */,
 				125021A925EEAC9000D329E8 /* Main.storyboard */,
 				125021AC25EEAC9200D329E8 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				125021A825EEAC9000D329E8 /* ViewController.swift in Sources */,
 				123C8A9B25F0001C0001D75E /* Box.swift in Sources */,
+				123B312E25F4CD65009AF055 /* BitMaskCategory.swift in Sources */,
 				125021B925EEADC000D329E8 /* Plane.swift in Sources */,
 				125021A425EEAC9000D329E8 /* AppDelegate.swift in Sources */,
 			);

@@ -33,6 +33,8 @@ class ViewController: UIViewController {
         // Set the scene to the view
         sceneView.scene = scene
         
+        sceneView.scene.physicsWorld.contactDelegate = self
+        
         setupGestures()
     }
     
@@ -55,7 +57,7 @@ class ViewController: UIViewController {
     
     func createBox(hitResult: ARHitTestResult) {
         let position = SCNVector3(hitResult.worldTransform.columns.3.x,
-                                  hitResult.worldTransform.columns.3.y + 0.05 + 0.5,
+                                  hitResult.worldTransform.columns.3.y + 0.5,
                                   hitResult.worldTransform.columns.3.z)
         
         let box = Box(atPosition: position)
@@ -102,5 +104,19 @@ extension ViewController: ARSCNViewDelegate {
         guard plane != nil else { return }
         
         plane?.update(anchor: anchor as! ARPlaneAnchor)
+    }
+}
+
+extension ViewController: SCNPhysicsContactDelegate {
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        
+        let nodeA = contact.nodeA
+        let nodeB = contact.nodeB
+        
+        if nodeB.physicsBody?.contactTestBitMask == BitMaskCategory.box {
+            nodeA.geometry?.materials.first?.diffuse.contents = UIColor.red
+            return
+        }
+        nodeB.geometry?.materials.first?.diffuse.contents = UIColor.red
     }
 }
